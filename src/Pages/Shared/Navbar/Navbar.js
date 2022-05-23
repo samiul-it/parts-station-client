@@ -24,7 +24,7 @@ const Navbar = () => {
     return <Loading></Loading>
   }
 
-  console.log(user);
+  // console.log(user);
 
 
 
@@ -65,12 +65,16 @@ const Navbar = () => {
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
               >
                 {menuItems}
+                <li>{user && <Link to="/dashboard">Dashboard </Link>}</li>
               </ul>
             </div>
             <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+            <ul className="menu menu-horizontal p-0">
+              {menuItems}
+              <li>{user && <Link to="/dashboard">Dashboard </Link>}</li>
+            </ul>
           </div>
           <div className="navbar-end">
             {user ? (
