@@ -1,7 +1,33 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../Firebase/firebase.init';
+import { toast } from 'react-toastify';
+import Loading from './../Loading/Loading';
 
 const Navbar = () => {
+
+  const [user, loading, error] = useAuthState(auth);
+
+  const [sendEmailVerification, sending, verificationError] =
+    useSendEmailVerification(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
+
+  if (error) {
+    toast.error(error.message);
+  }
+  if (sending) {
+    return <Loading></Loading>
+  }
+
+  console.log(user);
+
+
+
   const menuItems = (
     <>
       <li>
@@ -47,7 +73,46 @@ const Navbar = () => {
             <ul className="menu menu-horizontal p-0">{menuItems}</ul>
           </div>
           <div className="navbar-end">
-            <Link className='btn' to="/login">Login</Link>
+            {user ? (
+              <>
+                <div className="dropdown dropdown-hover">
+                  <label tabIndex="0" className="btn btn-ghost m-1">
+                    {user?.displayName}{" "}
+                    {user?.emailVerified == true ? (
+                      <span className="badge badge-sm">Verified</span>
+                    ) : (
+                      <span className="badge badge-sm">Unverified</span>
+                    )}
+                  </label>
+                  <ul
+                    tabIndex="0"
+                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      {user?.emailVerified == true ? (
+                        <button>Email Verified</button>
+                      ) : (
+                        <button
+                          onClick={async () => {
+                            await sendEmailVerification();
+                            toast.success("Verification Email Sent");
+                          }}
+                        >
+                          Verify Email
+                        </button>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+                <button onClick={logout} className="btn">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link className="btn" to="/login">
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </div>

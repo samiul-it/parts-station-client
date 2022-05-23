@@ -12,6 +12,8 @@ const SignUp = () => {
     const confirmPasswordRef = useRef();
      const [createUserWithEmailAndPassword, user, loading, error] =
        useCreateUserWithEmailAndPassword(auth);
+    
+       const navigate=useNavigate();
 
     const handleFormSubmit=(event)=>{
         event.preventDefault();
@@ -23,7 +25,8 @@ const SignUp = () => {
         if(password===confirmPassword){
             createUserWithEmailAndPassword(email,password);
             console.log("User Created!");
-            toast.success("User Created Successfully!");;
+            toast.success("User Created Successfully!");
+            navigate('/home');  
         }
         else{
             toast.error("Password didn't matched!");

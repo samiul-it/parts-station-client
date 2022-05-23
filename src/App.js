@@ -9,6 +9,7 @@ import Login from './Pages/Authentication/Login/Login';
 import "react-toastify/dist/ReactToastify.css";
 import SignUp from './Pages/Authentication/SignUp.js/SignUp';
 
+
 function App() {
   return (
     <div>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        
 
         <Route path="*" element={<Error></Error>}></Route>
       </Routes>
