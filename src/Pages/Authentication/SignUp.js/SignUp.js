@@ -1,15 +1,40 @@
 import React, { useEffect, useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from './../../../Firebase/firebase.init';
+import { toast } from 'react-toastify';
+import Loading from '../../Shared/Loading/Loading';
 
 const SignUp = () => {
     
     const emailRef = useRef();
     const passwordRef = useRef();
+    const confirmPasswordRef = useRef();
+     const [createUserWithEmailAndPassword, user, loading, error] =
+       useCreateUserWithEmailAndPassword(auth);
 
-    const handleFormSubmit=()=>{
-        
+    const handleFormSubmit=(event)=>{
+        event.preventDefault();
+
+        const email=emailRef.current.value;
+        const password=passwordRef.current.value;
+        const confirmPassword=confirmPasswordRef.current.value;
+
+        if(password===confirmPassword){
+            createUserWithEmailAndPassword(email,password);
+            console.log("User Created!");
+            toast.success("User Created Successfully!");;
+        }
+        else{
+            toast.error("Password didn't matched!");
+        }
+    }
+
+    if (error) {
+      toast.error(error.message);
+    }
+    if (loading) {
+      return <Loading></Loading>;
     }
 
 
@@ -47,9 +72,21 @@ const SignUp = () => {
                     </label>
                     <input
                       ref={passwordRef}
-                      type="text"
+                      type="password"
                       required
                       placeholder="Please enter your password"
+                      className="input input-bordered"
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Confirm Password</span>
+                    </label>
+                    <input
+                      ref={confirmPasswordRef}
+                      type="password"
+                      required
+                      placeholder="Please confirm your password"
                       className="input input-bordered"
                     />
                     <label className="label">
