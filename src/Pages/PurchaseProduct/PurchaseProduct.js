@@ -29,6 +29,7 @@ const PurchaseProduct = () => {
 
     const orderQty = parseInt(data.order);
     const stockUpdate = currentStock - orderQty;
+    const status="";
 
     const orderDetails = {
       id,
@@ -37,6 +38,7 @@ const PurchaseProduct = () => {
       phone: data.phone,
       orderQty,
       userEmail,
+      status,
     };
 
     setCurrentStock(stockUpdate);

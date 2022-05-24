@@ -39,6 +39,7 @@ const MyOrders = () => {
               <th>Product Name</th>
               <th>Quantity</th>
               <th>Shipping Address</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>
@@ -49,9 +50,8 @@ const MyOrders = () => {
                   <td>{myOrder.productName}</td>
                   <td>{myOrder.orderQty}</td>
                   <td>{myOrder.address}</td>
-                  
+                  <td>{myOrder.status}</td>
                 </tr>
-             
             ))}
           </tbody>
         </table>

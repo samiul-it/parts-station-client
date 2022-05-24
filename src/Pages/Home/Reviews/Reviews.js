@@ -1,6 +1,13 @@
 import React from 'react';
+import useReview from '../../../hooks/useReview';
 
 const Reviews = () => {
+
+  const [reviews, setReviews] = useReview();
+
+
+
+
     return (
       <div>
         <div className="flex flex-col w-full">
@@ -14,6 +21,7 @@ const Reviews = () => {
                     </div>
                   </div>
                 </div>
+                <h1>{reviews.length}</h1>
                 <p>
                   We are using cookies for no reason.We are using cookies for no
                   reason.
