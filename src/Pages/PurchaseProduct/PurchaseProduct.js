@@ -78,8 +78,8 @@ const PurchaseProduct = () => {
           </div>
         </div>
 
-        <div class="card w-96 bg-base-100 shadow-xl">
-          <div class="card-body items-center text-center">
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body items-center text-center">
             <input
               className="input input-bordered input-primary w-full max-w-xs"
               type="text"
@@ -93,8 +93,8 @@ const PurchaseProduct = () => {
               readOnly
             />
             <form onSubmit={handleSubmit(onSubmit)}>
-              <label class="label">
-                <span class="label-text">Please Enter Your Address</span>
+              <label className="label">
+                <span className="label-text">Please Enter Your Address</span>
               </label>
               <input
                 className="input input-bordered input-primary w-full max-w-xs"
@@ -102,8 +102,8 @@ const PurchaseProduct = () => {
                 {...register("address", {})}
               />
 
-              <label class="label">
-                <span class="label-text">Please Enter Phone Number</span>
+              <label className="label">
+                <span className="label-text">Please Enter Phone Number</span>
               </label>
               <input
                 className="input input-bordered input-primary w-full max-w-xs"
@@ -111,8 +111,8 @@ const PurchaseProduct = () => {
                 {...register("phone", {})}
               />
 
-              <label class="label">
-                <span class="label-text">Please Enter Order Quantity</span>
+              <label className="label">
+                <span className="label-text">Please Enter Order Quantity</span>
               </label>
               <input
                 className="input input-bordered input-primary w-full max-w-xs"
