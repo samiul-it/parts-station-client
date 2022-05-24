@@ -1,38 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from 'react-toastify';
+import auth from './../../../Firebase/firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const MyOrders = () => {
+  const [user, loading, error] = useAuthState(auth);
+
+  const url = `http://localhost:5000/myorders/${user.email}`;
+
+
+  const [myOrders,setMyOrders]=useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMyOrders(data));
+  }, []);
+
+  
+
+
+
+
+
+
+
+
+
   return (
     <div>
-      <p>My Orders</p>
-      <div class="overflow-x-auto">
-        <table class="table w-full">
+      <p>My Orders {myOrders.length}</p>
+      <div className="overflow-x-auto">
+        <table className="table w-full">
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>#SL</th>
+              <th>OrderID</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Shipping Address</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            <tr>    
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
+            {myOrders.map((myOrder,index) => (
+                <tr key={myOrder._id}>
+                  <th>{index+1}</th>
+                  <td>{myOrder.id}</td>
+                  <td>{myOrder.productName}</td>
+                  <td>{myOrder.orderQty}</td>
+                  <td>{myOrder.address}</td>
+                  
+                </tr>
+             
+            ))}
           </tbody>
         </table>
       </div>
