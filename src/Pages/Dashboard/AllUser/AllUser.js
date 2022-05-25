@@ -18,7 +18,12 @@ const AllUser = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/users").then((res) => res.json())
+    fetch("http://localhost:5000/users", {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => res.json())
   );
 
   if (isLoading) {
@@ -40,10 +45,11 @@ const AllUser = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <UserRow key={user._id}
-              user={user}
-              index={index}
-              refetch={refetch}
+              <UserRow
+                key={user._id}
+                user={user}
+                index={index}
+                refetch={refetch}
               ></UserRow>
             ))}
           </tbody>
