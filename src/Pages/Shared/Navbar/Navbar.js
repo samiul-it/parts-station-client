@@ -5,8 +5,11 @@ import { Link } from 'react-router-dom';
 import auth from '../../../Firebase/firebase.init';
 import { toast } from 'react-toastify';
 import Loading from './../Loading/Loading';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const navigate=useNavigate();
 
   const [user, loading, error] = useAuthState(auth);
 
@@ -15,6 +18,9 @@ const Navbar = () => {
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
+    navigate('/home');
+
   };
 
   if (error) {
@@ -113,9 +119,14 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <Link className="btn" to="/login">
-                Login
-              </Link>
+              <>
+                <Link className="btn" to="/login">
+                  Login
+                </Link>
+                <Link className="btn" to="/signup">
+                  SignUp
+                </Link>
+              </>
             )}
           </div>
         </div>
