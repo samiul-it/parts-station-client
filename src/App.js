@@ -16,6 +16,7 @@ import MyReviews from "./Pages/Dashboard/MyReviews/MyReviews";
 import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import Products from "./Pages/Products/Products";
 import PurchaseProduct from "./Pages/PurchaseProduct/PurchaseProduct";
+import AllUser from "./Pages/Dashboard/AllUser/AllUser";
 
 function App() {
   return (
@@ -44,6 +45,10 @@ function App() {
           <Route
             path="/dashboard/profile"
             element={<MyProfile></MyProfile>}
+          ></Route>
+          <Route
+            path="/dashboard/all-users"
+            element={<AllUser></AllUser>}
           ></Route>
         </Route>
 

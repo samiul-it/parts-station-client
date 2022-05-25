@@ -29,7 +29,7 @@ const SignUp = () => {
   if (loading) {
     return <Loading></Loading>;
   }
-  console.log(user);
+  // console.log(user);
   
 
   const handleFormSubmit = (event) => {
