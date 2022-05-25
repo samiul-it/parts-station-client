@@ -89,7 +89,7 @@ const PurchaseProduct = () => {
             <input
               className="input input-bordered input-primary w-full max-w-xs"
               type="text"
-              value={user.email}
+              value={user?.email}
               readOnly
             />
             <form onSubmit={handleSubmit(onSubmit)}>
