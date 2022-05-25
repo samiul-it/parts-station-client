@@ -4,9 +4,12 @@ import { toast } from "react-toastify";
 import Loading from "../../Shared/Loading/Loading";
 import auth from "./../../../Firebase/firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import useToken from "../../../hooks/useToken";
 
 const GoogleLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  const [token] = useToken(user);
 
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
