@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import auth from "./../../../Firebase/firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const MyOrders = () => {
 
@@ -42,22 +42,34 @@ const MyOrders = () => {
           <thead>
             <tr>
               <th>#SL</th>
-              <th>OrderID</th>
+
               <th>Product Name</th>
               <th>Quantity</th>
               <th>Shipping Address</th>
-              <th>Status</th>
+              <th>Total Price</th>
+              
+              <th>Pay</th>
             </tr>
           </thead>
           <tbody>
             {myOrders.map((myOrder, index) => (
               <tr key={myOrder._id}>
                 <th>{index + 1}</th>
-                <td>{myOrder.id}</td>
+
                 <td>{myOrder.productName}</td>
                 <td>{myOrder.orderQty}</td>
                 <td>{myOrder.address}</td>
-                <td>{myOrder.status}</td>
+                <td className="text-2xl text-red-600">${myOrder.orderPrice}</td>
+                
+                <td>
+                  {myOrder.paid ? (
+                    <button className="btn text-red-400 btn-disabled	">PAID</button>
+                  ) : (
+                    <Link to={`/dashboard/payment/${myOrder._id}`}>
+                      <button className="btn btn-xs">Pay</button>
+                    </Link>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>

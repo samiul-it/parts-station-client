@@ -17,6 +17,8 @@ import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import Products from "./Pages/Products/Products";
 import PurchaseProduct from "./Pages/PurchaseProduct/PurchaseProduct";
 import AllUser from "./Pages/Dashboard/AllUser/AllUser";
+import RequireAdmin from './Pages/Authentication/RequireAdmin/RequireAdmin';
+import Payment from "./Pages/Dashboard/Payment/Payment";
 
 function App() {
   return (
@@ -43,12 +45,20 @@ function App() {
             element={<MyReviews></MyReviews>}
           ></Route>
           <Route
+            path="/dashboard/payment/:id"
+            element={<Payment></Payment>}
+          ></Route>
+          <Route
             path="/dashboard/profile"
             element={<MyProfile></MyProfile>}
           ></Route>
           <Route
             path="/dashboard/all-users"
-            element={<AllUser></AllUser>}
+            element={
+              
+                <RequireAdmin> <AllUser></AllUser> </RequireAdmin>
+             
+            }
           ></Route>
         </Route>
 

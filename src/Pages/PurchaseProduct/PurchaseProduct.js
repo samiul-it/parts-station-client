@@ -18,6 +18,8 @@ const PurchaseProduct = () => {
     productDetail;
   const [currentStock, setCurrentStock] = useState(null);
 
+  const [totalPrice,setTotalPrice]=useState(0);
+
   const {
     register,
     formState: { errors },
@@ -28,6 +30,12 @@ const PurchaseProduct = () => {
     const userEmail = user.email;
 
     const orderQty = parseInt(data.order);
+    const orderPrice = parseInt(orderQty * price);
+    console.log("OrderPRice",orderPrice);
+    
+    setTotalPrice(orderPrice);
+    
+    console.log("Total Price",totalPrice);
     const stockUpdate = currentStock - orderQty;
     const status="";
 
@@ -38,6 +46,7 @@ const PurchaseProduct = () => {
       phone: data.phone,
       orderQty,
       userEmail,
+      orderPrice,
       status,
     };
 
@@ -58,6 +67,7 @@ const PurchaseProduct = () => {
 
   useEffect(() => {
     setCurrentStock(stock);
+    
   }, [productDetail, stock]);
 
   return (
@@ -80,12 +90,9 @@ const PurchaseProduct = () => {
 
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body items-center text-center">
-            <input
-              className="input input-bordered input-primary w-full max-w-xs"
-              type="text"
-              value={user?.displayName}
-              readOnly
-            />
+            <span className="text-4xl text-orange-800">
+              {user?.displayName}
+            </span>
             <input
               className="input input-bordered input-primary w-full max-w-xs"
               type="text"
@@ -137,12 +144,16 @@ const PurchaseProduct = () => {
               )}
               <br />
 
-              <button  className="btn btn-error">Order</button>
+              <span className="text-4xl text-green-500">
+                Total Payment : $ {totalPrice}
+              </span>
+              <br />
+
+              <button className="btn btn-error">Order</button>
             </form>
           </div>
         </div>
       </div>
-
     </div>
   );
 };
