@@ -10,7 +10,7 @@ const UserRow = ({user,index,refetch}) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             toast.success("Added as an Admin");
             refetch();
           });

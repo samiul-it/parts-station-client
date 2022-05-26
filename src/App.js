@@ -53,11 +53,11 @@ function App() {
             element={<MyProfile></MyProfile>}
           ></Route>
           <Route
-            path="/dashboard/all-users"
+            path="/dashboard/allusers"
             element={
-              
-                <RequireAdmin> <AllUser></AllUser> </RequireAdmin>
-             
+              <RequireAdmin>
+                <AllUser></AllUser>
+              </RequireAdmin>
             }
           ></Route>
         </Route>

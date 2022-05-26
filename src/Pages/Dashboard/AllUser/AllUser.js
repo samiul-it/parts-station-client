@@ -8,10 +8,14 @@ import UserRow from "../UserRow/UserRow";
 const AllUser = () => {
   // const [users,setUsers]=useState([]);
   // useEffect(()=>{
-  //     fetch("http://localhost:5000/users")
+  //     fetch("http://localhost:5000/users", {
+  //     method: "GET",
+  //     headers: {
+  //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  //     },})
   //     .then(res=>res.json())
   //     .then(data=>setUsers(data));
-  // },[])
+  // },[users])
 
   const {
     data: users,
