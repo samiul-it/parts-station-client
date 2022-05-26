@@ -10,7 +10,7 @@ const Products = () => {
     return (
       <div>
         <div className="grid lg:grid-cols-3 my-10 justify-center mx-10 mb-10	">
-          {products.map((product) => (
+          {products.slice(0,6).map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
         </div>

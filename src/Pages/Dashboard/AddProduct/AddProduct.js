@@ -34,7 +34,7 @@ const AddProduct = () => {
         console.log(product);
 
 
-        const url = "http://localhost:5000/products";
+        const url = "https://thawing-savannah-63615.herokuapp.com/products";
         fetch(url, {
           method: "POST",
           headers: {

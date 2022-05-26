@@ -19,7 +19,7 @@ const MyProfile = () => {
     //loading users data
 
 
-    const url = `http://localhost:5000/profile/${user.email}`;
+    const url = `https://thawing-savannah-63615.herokuapp.com/profile/${user.email}`;
 
     useEffect(() => {
       fetch(url)
@@ -58,7 +58,7 @@ const MyProfile = () => {
 
         //Updating User data
 
-        fetch(`http://localhost:5000/profile/${user.email}`, {
+        fetch(`https://thawing-savannah-63615.herokuapp.com/profile/${user.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

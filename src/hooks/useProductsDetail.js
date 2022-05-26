@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 
 const useProductsDetail = (id) => {
     const [productDetail,setProductDetail]=useState({});
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://thawing-savannah-63615.herokuapp.com/products/${id}`;
 
     useEffect(()=>{
         fetch(url)

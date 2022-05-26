@@ -11,7 +11,7 @@ const ManageAllOrders = () => {
     const [orders,setOrders]=useOrders();
 
     const handleDeliverOrder = (id) => {
-      fetch(`http://localhost:5000/deliver-order/${id}`, {
+      fetch(`https://thawing-savannah-63615.herokuapp.com/deliver-order/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())

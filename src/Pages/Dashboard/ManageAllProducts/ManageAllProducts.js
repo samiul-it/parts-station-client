@@ -9,7 +9,7 @@ const ManageAllProducts = () => {
     const handleDeleteItem = (id) => {
       const confirmDelete = window.confirm("Are you Sure?");
       if (confirmDelete) {
-        const url = `http://localhost:5000/delete-product/${id}`;
+        const url = `https://thawing-savannah-63615.herokuapp.com/delete-product/${id}`;
         fetch(url, {
           method: "DELETE",
         })

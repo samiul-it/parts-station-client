@@ -5,7 +5,7 @@ const UserRow = ({user,index,refetch}) => {
 
     const {email,role}=user;
     const handleMakeAdmin=()=>{
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://thawing-savannah-63615.herokuapp.com/user/admin/${email}`, {
           method: "PUT",
         })
           .then((res) => res.json())

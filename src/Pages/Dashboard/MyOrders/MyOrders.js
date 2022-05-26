@@ -10,7 +10,7 @@ const MyOrders = () => {
   const navigate =useNavigate();
   const [user, loading, error] = useAuthState(auth);
 
-  const url = `http://localhost:5000/myorders/${user.email}`;
+  const url = `https://thawing-savannah-63615.herokuapp.com/myorders/${user.email}`;
 
   const [myOrders, setMyOrders] = useState([]);
 

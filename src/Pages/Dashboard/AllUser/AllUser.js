@@ -8,7 +8,7 @@ import UserRow from "../UserRow/UserRow";
 const AllUser = () => {
   // const [users,setUsers]=useState([]);
   // useEffect(()=>{
-  //     fetch("http://localhost:5000/users", {
+  //     fetch("https://thawing-savannah-63615.herokuapp.com/users", {
   //     method: "GET",
   //     headers: {
   //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -22,7 +22,7 @@ const AllUser = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/users", {
+    fetch("https://thawing-savannah-63615.herokuapp.com/users", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
