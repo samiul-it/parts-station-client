@@ -22,12 +22,20 @@ const SignUp = () => {
 
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token) {
+      navigate("/home");
+    }
+  }, [token]);
   
 
   if (loading) {
     return <Loading></Loading>;
   }
   // console.log(user);
+
+  
   
 
   const handleFormSubmit = (event) => {
@@ -44,7 +52,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(email, password);
       // console.log("User Created!");
       toast.success("User Created Successfully!");
-      navigate("/home");
+      
     } else {
       toast.error("Password didn't matched!");
     }

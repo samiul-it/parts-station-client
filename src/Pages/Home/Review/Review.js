@@ -5,8 +5,8 @@ const Review = ({review}) => {
     return (
       <div>
         <div className="flex flex-col w-full ">
-          <div className="grid card bg-base-200  place-items-center">
-            <div className="card w-80 bg-base-100 shadow-xl">
+          <div className="grid card  my-3  place-items-center">
+            <div className="card w-80 bg-base-300 shadow-xl">
               <div className="card-body m-2">
                 <div className="card-actions justify-center">
                   <div className="avatar">

@@ -21,11 +21,11 @@ const GoogleLogin = () => {
     await signInWithGoogle();
   };
   useEffect(() => {
-    if (user) {
+    if (token) {
       navigate(from, { replace: true });
       toast.success("Sign in Successful");
     }
-  }, [user]);
+  }, [token]);
 
   if (error) {
     toast.error(error.message);

@@ -1,8 +1,13 @@
 import React from 'react';
 import { useRef } from 'react';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import auth from './../../../Firebase/firebase.init';
 
 const AddProduct = () => {
+
+  const navigate=useNavigate();
 
     const productNameRef = useRef();
     const imageRef = useRef();
@@ -42,7 +47,17 @@ const AddProduct = () => {
           },
           body: JSON.stringify(product),
         })
-          .then((res) => res.json())
+          .then((res) => {
+            if (res.status == 403 || 401) {
+              console.log(res);
+              navigate("/home");
+
+              signOut(auth);
+
+              toast.error("Trying to Access Admin Role");
+            }
+            return res.json();
+          })
           .then((result) => console.log(result))
           .then(toast.success("Product added Confirmed!"));
     }

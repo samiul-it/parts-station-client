@@ -9,13 +9,10 @@ const Reviews = () => {
   const [reviews, setReviews] = useReview();
 
     return (
-      <div >
-        {
-          reviews.slice(0,3).map(review=><Review
-          key={review._id}
-          review={review}
-          ></Review>)
-        }
+      <div className="lg:grid grid-cols-3">
+        {reviews.slice(0, 3).map((review) => (
+          <Review key={review._id} review={review}></Review>
+        ))}
       </div>
     );
 };

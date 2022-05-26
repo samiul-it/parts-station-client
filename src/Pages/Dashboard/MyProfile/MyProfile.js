@@ -27,12 +27,6 @@ const MyProfile = () => {
         .then((data) => setProfileData(data));
     }, [user]);
 
-
-
-
-
-
-
     if(loading){
         return <Loading></Loading>;
     }

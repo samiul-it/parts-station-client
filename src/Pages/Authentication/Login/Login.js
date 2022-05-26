@@ -21,6 +21,7 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
 
     const [token] = useToken(user);
+    // console.log(user,token);
   const navigateToLogin = () => {
     navigate("/login");
   };
@@ -36,9 +37,10 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (user) {
+    if (token) {
+      navigate("/home");
     }
-  }, [user]);
+  }, [token]);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -46,8 +48,8 @@ const Login = () => {
     const password = passwordRef.current.value;
     // console.log(email, password);
     await signInWithEmailAndPassword(email, password);
-    // console.log("Login Successfull");
-    navigate("/home");
+    console.log("Login Successfull");
+    
   };
 
   if (error) {

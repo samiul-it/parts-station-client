@@ -4,8 +4,15 @@ import { useEffect } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import UserRow from "../UserRow/UserRow";
+import { signOut } from 'firebase/auth';
+import auth from './../../../Firebase/firebase.init';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AllUser = () => {
+
+
+  const navigate=useNavigate();
   // const [users,setUsers]=useState([]);
   // useEffect(()=>{
   //     fetch("https://thawing-savannah-63615.herokuapp.com/users", {
@@ -27,7 +34,18 @@ const AllUser = () => {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-    }).then((res) => res.json())
+    }).then((res) =>{
+      if (res.status == 200) {
+       return res.json();
+      }
+      if(res.status==403 || 401){
+        console.log(res);
+        navigate('/home');
+        signOut(auth);
+        toast.error("Trying to Access Admin Role");
+      }
+      
+      })
   );
 
   if (isLoading) {

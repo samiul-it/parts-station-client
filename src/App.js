@@ -81,11 +81,7 @@ function App() {
           ></Route>
           <Route
             path="/dashboard/allusers"
-            element={
-              <RequireAdmin>
-                <AllUser></AllUser>
-              </RequireAdmin>
-            }
+            element={<AllUser></AllUser>}
           ></Route>
         </Route>
 
