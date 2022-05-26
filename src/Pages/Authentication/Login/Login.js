@@ -5,6 +5,7 @@ import auth from "../../../Firebase/firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
 import { toast } from 'react-toastify';
+import useToken from './../../../hooks/useToken';
 
 const Login = () => {
   const emailRef = useRef();
@@ -18,6 +19,8 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+    const [token] = useToken(user);
   const navigateToLogin = () => {
     navigate("/login");
   };
@@ -44,6 +47,7 @@ const Login = () => {
     console.log(email, password);
     await signInWithEmailAndPassword(email, password);
     console.log("Login Successfull");
+    navigate("/home");
   };
 
   if (error) {

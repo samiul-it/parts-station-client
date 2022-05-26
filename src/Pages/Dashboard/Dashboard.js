@@ -22,26 +22,36 @@ const Dashboard = () => {
             htmlFor="my-drawer-2"
             className="btn btn-primary drawer-button lg:hidden"
           >
-            Open drawer
+            Show Menu
           </label>
         </div>
         <div className="drawer-side m-5">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
+            <li>{!admin && <Link to="/dashboard">My Orders</Link>}</li>
             <li>
-              <Link to="/dashboard">My Orders</Link>
-            </li>
-            <li>
-              <Link to="/dashboard/my-reviews">My Review</Link>
+              {!admin && <Link to="/dashboard/my-reviews">My Review</Link>}
             </li>
             <li>
               <Link to="/dashboard/profile">Profile</Link>
             </li>
             <li>{admin && <Link to="/dashboard/allusers">All Users</Link>}</li>
-            <li>{admin && <Link to="/dashboard/addproduct">Add Product</Link>}</li>
-            <li>{admin && <Link to="/dashboard/manageallproducts">Manage All Products</Link>}</li>
-            <li>{admin && <Link to="/dashboard/all-orders-admin">Manage All Orders</Link>}</li>
+            <li>
+              {admin && <Link to="/dashboard/addproduct">Add Product</Link>}
+            </li>
+            <li>
+              {admin && (
+                <Link to="/dashboard/manageallproducts">
+                  Manage All Products
+                </Link>
+              )}
+            </li>
+            <li>
+              {admin && (
+                <Link to="/dashboard/all-orders-admin">Manage All Orders</Link>
+              )}
+            </li>
           </ul>
         </div>
       </div>

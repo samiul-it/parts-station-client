@@ -19,10 +19,7 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
 
    const [token] = useToken(user);
-   
-   
 
-   
 
   const navigate = useNavigate();
   
@@ -47,7 +44,7 @@ const SignUp = () => {
       createUserWithEmailAndPassword(email, password);
       // console.log("User Created!");
       toast.success("User Created Successfully!");
-      // navigate("/home");
+      navigate("/home");
     } else {
       toast.error("Password didn't matched!");
     }

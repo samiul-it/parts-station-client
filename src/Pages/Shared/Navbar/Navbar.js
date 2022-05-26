@@ -39,9 +39,8 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
         <Link to="/products">Products</Link>
-        <Link to="/about">About </Link>
+        <Link to="/portfolio">Portfolio </Link>
         <Link to="/reviews">Reviews</Link>
-        <Link to="/contact-us">Contact Us</Link>
         <Link to="/blog">Blog</Link>
       </li>
     </>
@@ -75,7 +74,9 @@ const Navbar = () => {
                 <li>{user && <Link to="/dashboard">Dashboard </Link>}</li>
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">Parts Station</a>
+            <Link to="/" className="btn btn-ghost normal-case text-xl">
+              Parts Station
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
@@ -83,16 +84,16 @@ const Navbar = () => {
               <li>{user && <Link to="/dashboard">Dashboard </Link>}</li>
             </ul>
           </div>
-          <div className="navbar-end">
+          <div className="navbar-end ">
             {user ? (
               <>
                 <div className="dropdown dropdown-hover">
-                  <label tabIndex="0" className="btn btn-ghost m-1">
+                  <label tabIndex="0" className="btn btn-ghost  text-xs ">
                     {user?.displayName}{" "}
                     {user?.emailVerified == true ? (
-                      <span className="badge badge-sm">Verified</span>
+                      <span className="badge badge-sm text-xs">Verified</span>
                     ) : (
-                      <span className="badge badge-sm">Unverified</span>
+                      <span className="badge badge-sm text-xs">Unverified</span>
                     )}
                   </label>
                   <ul
@@ -101,7 +102,7 @@ const Navbar = () => {
                   >
                     <li>
                       {user?.emailVerified == true ? (
-                        <button>Email Verified</button>
+                        <button className="text-xs">Email Verified</button>
                       ) : (
                         <button
                           onClick={async () => {
@@ -115,16 +116,16 @@ const Navbar = () => {
                     </li>
                   </ul>
                 </div>
-                <button onClick={logout} className="btn">
+                <button onClick={logout} className="btn btn-xs">
                   Logout
                 </button>
               </>
             ) : (
               <>
-                <Link className="btn" to="/login">
+                <Link className="btn btn-xs" to="/login">
                   Login
                 </Link>
-                <Link className="btn" to="/signup">
+                <Link className="btn btn-xs" to="/signup">
                   SignUp
                 </Link>
               </>
