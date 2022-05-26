@@ -31,11 +31,11 @@ const PurchaseProduct = () => {
 
     const orderQty = parseInt(data.order);
     const orderPrice = parseInt(orderQty * price);
-    console.log("OrderPRice",orderPrice);
+    // console.log("OrderPRice",orderPrice);
     
     setTotalPrice(orderPrice);
     
-    console.log("Total Price",totalPrice);
+    // console.log("Total Price",totalPrice);
     const stockUpdate = currentStock - orderQty;
     const status="";
 

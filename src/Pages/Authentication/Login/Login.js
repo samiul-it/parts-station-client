@@ -44,9 +44,9 @@ const Login = () => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    console.log(email, password);
+    // console.log(email, password);
     await signInWithEmailAndPassword(email, password);
-    console.log("Login Successfull");
+    // console.log("Login Successfull");
     navigate("/home");
   };
 
