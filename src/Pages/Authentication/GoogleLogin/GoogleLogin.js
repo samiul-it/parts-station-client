@@ -10,7 +10,7 @@ const GoogleLogin = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const [token] = useToken(user);
-  console.log(user?.user?.email);
+  // console.log(user?.user?.email);
 
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";

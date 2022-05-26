@@ -114,7 +114,7 @@ const Login = () => {
                   </label>
                   <input
                     ref={passwordRef}
-                    type="text"
+                    type="password"
                     required
                     placeholder="Please enter your password"
                     className="input input-bordered"

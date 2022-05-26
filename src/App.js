@@ -19,6 +19,7 @@ import PurchaseProduct from "./Pages/PurchaseProduct/PurchaseProduct";
 import AllUser from "./Pages/Dashboard/AllUser/AllUser";
 import RequireAdmin from './Pages/Authentication/RequireAdmin/RequireAdmin';
 import Payment from "./Pages/Dashboard/Payment/Payment";
+import AddProduct from "./Pages/Dashboard/AddProduct/AddProduct";
 
 function App() {
   return (
@@ -51,6 +52,10 @@ function App() {
           <Route
             path="/dashboard/profile"
             element={<MyProfile></MyProfile>}
+          ></Route>
+          <Route
+            path="/dashboard/addproduct"
+            element={<AddProduct></AddProduct>}
           ></Route>
           <Route
             path="/dashboard/allusers"
