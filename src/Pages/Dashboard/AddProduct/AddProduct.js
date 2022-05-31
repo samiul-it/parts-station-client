@@ -49,17 +49,13 @@ const AddProduct = () => {
         })
           .then((res) => {
             if (res.status == 403 || 401) {
-              console.log(res);
-              navigate("/home");
-
-              signOut(auth);
-
-              toast.error("Trying to Access Admin Role");
+              // console.log(res);
+              
             }
             return res.json();
           })
           .then((result) => console.log(result))
-          .then(toast.success("Product added Confirmed!"));
+          .then(toast.success("Product added !"));
     }
 
 
@@ -147,7 +143,7 @@ const AddProduct = () => {
                     />
                   </div>
                   <div className="form-control mt-6">
-                    <button className="btn btn-primary">Login</button>
+                    <button className="btn btn-primary">Add Product</button>
                   </div>
                 </form>
                 <div></div>

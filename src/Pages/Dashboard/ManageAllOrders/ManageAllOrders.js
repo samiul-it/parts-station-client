@@ -5,10 +5,22 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './../../../Firebase/firebase.init';
 import Loading from './../../Shared/Loading/Loading';
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 
 const ManageAllOrders = () => {
-    const [orders,setOrders]=useOrders();
+    const [orders,setOrders,orderLoading]=useOrders();
+    const [deleteLoading,setDeleteLoading]=useState(true);
+    const [cancelLoading,setCancelLoading]=useState(true);
+    if(orderLoading){
+      return <Loading></Loading>;
+    }
+    // if(deleteLoading){
+    //   return <Loading></Loading>;
+    // }
+    // if(cancelLoading){
+    //   return <Loading></Loading>;
+    // }
 
     const handleDeliverOrder = (id) => {
       fetch(`https://thawing-savannah-63615.herokuapp.com/deliver-order/${id}`, {
@@ -17,12 +29,25 @@ const ManageAllOrders = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          toast.success("Order Delivered");
+          toast.success("Order Delivered")
+          setDeleteLoading(true);
         });
     };
 
-    
-    
+
+    const handleCancelOrder=(id)=>{
+      fetch(`https://thawing-savannah-63615.herokuapp.com/cancel-order/${id}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("Order Cancelled")
+          setCancelLoading(false);
+        });
+
+    }
+
     
 
     return (
@@ -40,6 +65,7 @@ const ManageAllOrders = () => {
                 <th>Total Price</th>
                 <th>Payment Status</th>
                 <th>Action</th>
+                <th>Cancel</th>
               </tr>
             </thead>
             <tbody>
@@ -56,14 +82,20 @@ const ManageAllOrders = () => {
                   </td>
 
                   <td>
-                    {order.paid  && order.status=="" ? (
-                      <button onClick={()=>handleDeliverOrder(order._id)} className="btn btn-sm">Deliver</button>
+                    {order.paid && order.status == "" ? (
+                      <button
+                        onClick={() => handleDeliverOrder(order._id)}
+                        className="btn btn-sm"
+                      >
+                        Deliver
+                      </button>
                     ) : (
                       <button className="btn btn-disabled btn-sm">
                         Deliver
                       </button>
                     )}
                   </td>
+                  <td>{order.paid || order.status=="canceled"? " ": <button onClick={()=>handleCancelOrder(order._id)} className='btn btn-sm bg-red-700'>Cancel</button>}</td>
                 </tr>
               ))}
             </tbody>

@@ -71,83 +71,102 @@ const MyProfile = () => {
     return (
       <div>
         <p>Welcome to My Profile</p>
-        <div className="text-center lg:text-left">
-          <h1 className="text-3xl font-bold">Your Informations</h1>
-          <div className="py-1">
-            <h1 className="text-xl text-blue-900">Name:{user?.displayName}</h1>
-            <h1 className="text-xl text-blue-800">Email: {user?.email}</h1>
-            <h1 className="text-xl text-blue-800">
-              City: {profileData[0]?.city}
-            </h1>
-            <h1 className="text-xl text-blue-800">
-              Education: {profileData[0]?.edu}
-            </h1>
-            <h1 className="text-xl text-blue-800">
-              Phone: {profileData[0]?.phone}
-            </h1>
-            <a className='text-red-500' href={profileData[0]?.linkedin}>Linkedin</a>
+        <div className="lg:flex	">
+          <div
+            tabIndex="0"
+            className="collapse collapse-plus border border-base-300 hadow-2xl bg-base-200 rounded-box"
+          >
+            <div className="collapse-title text-xl font-medium">
+              Your Informations
+            </div>
+            <div className="collapse-content">
+              <div className="text-center lg:text-left">
+                <div className="py-1">
+                  <h1 className="text-xl text-blue-900">
+                    Name:{user?.displayName}
+                  </h1>
+                  <h1 className="text-xl text-blue-800">
+                    Email: {user?.email}
+                  </h1>
+                  <h1 className="text-xl text-blue-800">
+                    City: {profileData[0]?.city}
+                  </h1>
+                  <h1 className="text-xl text-blue-800">
+                    Education: {profileData[0]?.edu}
+                  </h1>
+                  <h1 className="text-xl text-blue-800">
+                    Phone: {profileData[0]?.phone}
+                  </h1>
+                  <a className="text-red-500" href={profileData[0]?.linkedin}>
+                    Linkedin
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="hero  bg-base-200">
-          <div className="hero-content flex-col lg:flex-row">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <div className="card-body">
-                <form onSubmit={handleFormSubmit}>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">City</span>
-                    </label>
-                    <input
-                      ref={cityRef}
-                      type="text"
-                      placeholder="Please Enter your City"
-                      className="input input-bordered"
-                      required
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Education</span>
-                    </label>
-                    <input
-                      ref={educationRef}
-                      type="text"
-                      placeholder="Please Enter your Education"
-                      className="input input-bordered"
-                      required
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">
-                        Add Linkedin Profile Link
-                      </span>
-                    </label>
-                    <input
-                      ref={linkRef}
-                      type="text"
-                      placeholder="Please Enter your email"
-                      className="input input-bordered"
-                      required
-                    />
-                  </div>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text">Phone</span>
-                    </label>
-                    <input
-                      ref={phoneRef}
-                      type="text"
-                      required
-                      placeholder="Please enter your Phone Number"
-                      className="input input-bordered"
-                    />
-                  </div>
-                  <div className="form-control mt-6">
-                    <button className="btn btn-primary">Update Informations</button>
-                  </div>
-                </form>
-                <div></div>
+          <div className="hero  bg-base-200">
+            <div className="hero-content flex-col lg:flex-row">
+              <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card-body">
+                  <form onSubmit={handleFormSubmit}>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">City</span>
+                      </label>
+                      <input
+                        ref={cityRef}
+                        type="text"
+                        placeholder="Please Enter your City"
+                        className="input input-bordered"
+                        required
+                      />
+                    </div>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Education</span>
+                      </label>
+                      <input
+                        ref={educationRef}
+                        type="text"
+                        placeholder="Please Enter your Education"
+                        className="input input-bordered"
+                        required
+                      />
+                    </div>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">
+                          Add Linkedin Profile Link
+                        </span>
+                      </label>
+                      <input
+                        ref={linkRef}
+                        type="text"
+                        placeholder="Please Enter your email"
+                        className="input input-bordered"
+                        required
+                      />
+                    </div>
+                    <div className="form-control">
+                      <label className="label">
+                        <span className="label-text">Phone</span>
+                      </label>
+                      <input
+                        ref={phoneRef}
+                        type="text"
+                        required
+                        placeholder="Please enter your Phone Number"
+                        className="input input-bordered"
+                      />
+                    </div>
+                    <div className="form-control mt-6">
+                      <button className="btn btn-primary">
+                        Update Informations
+                      </button>
+                    </div>
+                  </form>
+                  <div></div>
+                </div>
               </div>
             </div>
           </div>

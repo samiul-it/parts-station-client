@@ -1,7 +1,11 @@
 import React from 'react';
 import homeHero from "../../../../Resources/Images/auto_parts.jpg";
+import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './../../../../Firebase/firebase.init';
 
 const HomeHero = () => {
+  const [user,loading]=useAuthState(auth);
     return (
       <div>
         <div
@@ -22,7 +26,11 @@ const HomeHero = () => {
                 than other parts.Also we have customized parts manufacturing
                 options available.
               </p>
-              <button className="btn btn-outline btn-success">Register Now</button>
+              <Link to={user ? "/products" : "/signup"}>
+                <button className="btn btn-outline btn-success">
+                  {user ? "Products" : "Signup"}
+                </button>
+              </Link>
             </div>
           </div>
         </div>

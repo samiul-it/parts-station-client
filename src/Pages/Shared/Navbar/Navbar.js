@@ -101,6 +101,12 @@ const Navbar = () => {
                     className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                   >
                     <li>
+                      <button className="text-xs">
+                        <Link to='/dashboard
+                        '>My Profile</Link>
+                      </button>
+                    </li>
+                    <li>
                       {user?.emailVerified == true ? (
                         <button className="text-xs">Email Verified</button>
                       ) : (
