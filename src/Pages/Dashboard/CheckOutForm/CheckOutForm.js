@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
   const { _id,orderPrice, userEmail } = order;
 
   useEffect(() => {
-    fetch("https://thawing-savannah-63615.herokuapp.com/create-payment-intent", {
+    fetch("https://parts-station-server.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const CheckoutForm = ({ order }) => {
 
 
 
-        fetch(`https://thawing-savannah-63615.herokuapp.com/order/${_id}`, {
+        fetch(`https://parts-station-server.onrender.com/order/${_id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

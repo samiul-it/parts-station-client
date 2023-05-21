@@ -5,7 +5,7 @@ const useProducts = () => {
   const [productsLoading, setProductsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://thawing-savannah-63615.herokuapp.com/products")
+    fetch("https://parts-station-server.onrender.com/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -9,7 +9,7 @@ const useAdmin = (user) => {
     const email = user?.email;
     // console.log(adminLoading);
     if (email) {
-      fetch(`https://thawing-savannah-63615.herokuapp.com/admin/${email}`, {
+      fetch(`https://parts-station-server.onrender.com/admin/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

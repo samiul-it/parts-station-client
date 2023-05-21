@@ -39,7 +39,7 @@ const AddProduct = () => {
         console.log(product);
 
 
-        const url = "https://thawing-savannah-63615.herokuapp.com/products";
+        const url = "https://parts-station-server.onrender.com/products";
         fetch(url, {
           method: "POST",
           headers: {

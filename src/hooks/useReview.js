@@ -5,7 +5,7 @@ const useReview = () => {
   const [reviews, setReviews] = useState([]);
   const [reviewLodaing, setReviewLoading] = useState(true);
 
-  const url = "https://thawing-savannah-63615.herokuapp.com/reviews";
+  const url = "https://parts-station-server.onrender.com/reviews";
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())

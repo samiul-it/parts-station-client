@@ -5,7 +5,7 @@ const useOrders = () => {
   const [orderLoading,setOrderLoading]=useState(true);
 
   useEffect(() => {
-    fetch("https://thawing-savannah-63615.herokuapp.com/allorders", {
+    fetch("https://parts-station-server.onrender.com/allorders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

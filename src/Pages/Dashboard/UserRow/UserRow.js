@@ -5,7 +5,7 @@ const UserRow = ({user,index,refetch}) => {
 
     const {email,role}=user;
     const handleMakeAdmin=()=>{
-        fetch(`https://thawing-savannah-63615.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://parts-station-server.onrender.com/user/admin/${email}`, {
           method: "PUT",
         })
           .then((res) => res.json())

@@ -10,7 +10,7 @@ const useToken = (user) => {
       //  console.log(email);
        const currentUser = { email: email };
        if (email) {
-         fetch(`https://thawing-savannah-63615.herokuapp.com/user/${email}`, {
+         fetch(`https://parts-station-server.onrender.com/user/${email}`, {
            method: "PUT",
            headers: {
              "content-type": "application/json",

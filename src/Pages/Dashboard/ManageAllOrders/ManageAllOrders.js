@@ -23,7 +23,7 @@ const ManageAllOrders = () => {
     // }
 
     const handleDeliverOrder = (id) => {
-      fetch(`https://thawing-savannah-63615.herokuapp.com/deliver-order/${id}`, {
+      fetch(`https://parts-station-server.onrender.com/deliver-order/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())
@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
 
 
     const handleCancelOrder=(id)=>{
-      fetch(`https://thawing-savannah-63615.herokuapp.com/cancel-order/${id}`, {
+      fetch(`https://parts-station-server.onrender.com/cancel-order/${id}`, {
         method: "PUT",
       })
         .then((res) => res.json())

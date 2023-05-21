@@ -15,7 +15,7 @@ const AllUser = () => {
   const navigate=useNavigate();
   // const [users,setUsers]=useState([]);
   // useEffect(()=>{
-  //     fetch("https://thawing-savannah-63615.herokuapp.com/users", {
+  //     fetch("https://parts-station-server.onrender.com/users", {
   //     method: "GET",
   //     headers: {
   //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -29,7 +29,7 @@ const AllUser = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("https://thawing-savannah-63615.herokuapp.com/users", {
+    fetch("https://parts-station-server.onrender.com/users", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

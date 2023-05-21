@@ -19,7 +19,7 @@ const MyProfile = () => {
     //loading users data
 
 
-    const url = `https://thawing-savannah-63615.herokuapp.com/profile/${user.email}`;
+    const url = `https://parts-station-server.onrender.com/profile/${user.email}`;
 
     useEffect(() => {
       fetch(url)
@@ -52,7 +52,7 @@ const MyProfile = () => {
 
         //Updating User data
 
-        fetch(`https://thawing-savannah-63615.herokuapp.com/profile/${user.email}`, {
+        fetch(`https://parts-station-server.onrender.com/profile/${user.email}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

@@ -52,7 +52,7 @@ const PurchaseProduct = () => {
 
     setCurrentStock(stockUpdate);
 
-    const url = "https://thawing-savannah-63615.herokuapp.com/orders";
+    const url = "https://parts-station-server.onrender.com/orders";
     fetch(url, {
       method: "POST",
       headers: {

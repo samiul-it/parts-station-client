@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 const MyReviews = () => {
   const [user, loading, error] = useAuthState(auth);
 
-  const url = `https://thawing-savannah-63615.herokuapp.com/reviews/${user.email}`;
+  const url = `https://parts-station-server.onrender.com/reviews/${user.email}`;
 
   const [myReview, setMyReview] = useState([]);
   const [rating, setRating] = useState(0);
@@ -32,7 +32,7 @@ const MyReviews = () => {
       review: data.review,
     };
 
-    fetch(`https://thawing-savannah-63615.herokuapp.com/reviews/${user.email}`, {
+    fetch(`https://parts-station-server.onrender.com/reviews/${user.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
